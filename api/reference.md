@@ -2960,7 +2960,7 @@ To allow the logging into the project from the app, you'll need to make some cha
 
     ```php
     api: {
-      "../_/": "Second Project"
+      "../_/": "Main Project"
     }
     ```
 
@@ -2968,6 +2968,7 @@ To allow the logging into the project from the app, you'll need to make some cha
 
     ```php
     api: {
+      "../_/": "Main Project",
       "../second_project/": "Second Project"
     }
     ```
