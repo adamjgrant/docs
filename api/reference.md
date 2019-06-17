@@ -2932,6 +2932,49 @@ If there's a fille in the root named `.lock` this instance is locked from creati
 }
 ```
 
+#### Response
+
+```json
+{
+  "public": true
+}
+```
+
+or `"public": false` depending on your configuration.
+
+#### App Configuration for Multiple Projects
+
+To allow the logging into the project from the app, you'll need to make some changes to `/public/admin/config.js`
+
+1. Enable multi-project login
+
+    Flip `allowOtherAPI` to `true` to expose a dropdown project switcher.
+
+    ```php
+    allowOtherAPI: true
+    ```
+
+2. Define other projects
+
+    in the `api` object, you'll need to tell the app what to call the project along with its environment name. You should already have the default project configured as such:
+
+    ```php
+    api: {
+      "../_/": "Second Project"
+    }
+    ```
+
+    We can now add a second line to define our new project.
+
+    ```php
+    api: {
+      "../second_project/": "Second Project"
+    }
+    ```
+
+    Note the environment (`second_project` in this example) should correspond to the filename of the project's database config.
+    So the above configuration expects `api.second_project.php` to exist in `/config/`
+    
 ### Projects Auth Config
 
 | Attribute       | Description
